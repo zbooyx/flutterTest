@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
       home: MyHomePage(title: 'cos se klikam cos wychodzi'),
     );
@@ -55,6 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
       _counter2--;
     });
   }
@@ -73,43 +79,85 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'tyle razy klikles:',
+      body:  Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+
+              children: <Widget>[
+            Text('eloooo'),
+            FlatButton(
+              child: new Container(
+                padding: EdgeInsets.all(18),
+                decoration: new BoxDecoration(
+                  border: new Border(
+                    left: new BorderSide(
+                      color: Colors.deepOrange,
+                      width: 5.0,
+                      style: BorderStyle.solid
+                    ),
+                  ),
+                )),
+                onPressed: (){},
+                color: Colors.amber,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            Container(
+              padding: EdgeInsets.all(18),
+              decoration: new BoxDecoration(
+                border: new Border.all(
+                    color: Colors.green,
+                    width: 8.0,
+                    style: BorderStyle.solid
+                ),
+                borderRadius: new BorderRadius.vertical(
+                  top: new Radius.circular(8),
+                  //bottom: new Radius.circular(20.0),
+                ),
+              ),
+              child: Text('inside cont'),
             ),
-            Text(
-              '$_counter2',
-              style: Theme.of(context).textTheme.display4,
+            Container(
+              color: Colors.deepOrangeAccent,
+              padding: EdgeInsets.all(29),
+              child: Text('icooos'),
+            )
+          ]),
+          Text('eloooo'),
+          FlatButton(
+            onPressed: (){},
+            color: Colors.amber,
+            child: Text('hhhjhjh')
+          ),
+        Container(
+          width: 200.0,
+          height: 200.0,
+          decoration: new BoxDecoration(
+            color: Colors.white,
+            border: new Border.all(
+                color: Colors.green,
+                width: 5.0,
+                style: BorderStyle.solid
             ),
-          ],
+            shape: BoxShape.circle,
+           ),
         ),
+          Container(
+            color: Colors.deepOrangeAccent,
+            padding: EdgeInsets.all(29),
+            child: Text('icooos'),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          print('idziesz!');
+        },
         tooltip: 'Increment',
+        splashColor: Colors.amber,
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
